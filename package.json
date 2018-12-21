@@ -1,0 +1,30 @@
+{
+  "name": "bitcoin_script_js",
+  "version": "1.0.0",
+  "description": "Bitcoin script interpreter written in javascript for browsers and node.js",
+  "main": "index.js",
+  "dependencies": {
+    "bitcoin-ops": "1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JBaczuk/bitcoin_script_js.git"
+  },
+  "keywords": [
+    "bitcoin",
+    "script",
+    "interpreter",
+    "browser",
+    "node"
+  ],
+  "author": "Jordan Baczuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JBaczuk/bitcoin_script_js/issues"
+  },
+  "homepage": "https://github.com/JBaczuk/bitcoin_script_js#readme"
+}
