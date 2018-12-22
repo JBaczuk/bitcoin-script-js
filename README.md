@@ -5,3 +5,7 @@ Bitcoin script interpreter written in javascript for browsers and node.js.
 
 ## Interactive Runtime
 This module can be used to create an interactive script interpreter similar to [https://www.tryhaskell.org/](https://www.tryhaskell.org/)
+
+## Setup For Development
+
+Prior to beginning development, we recommend that you install an [EditorConfig](https://editorconfig.org/#download) plugin for your editor if your editor does not have builtin support for it.
