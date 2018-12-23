@@ -9,6 +9,10 @@
     "opcodes": [
       0
     ],
+    "words": [
+      "OP_0",
+      "OP_FALSE"
+    ],
     "disabled": false
   },
   {
@@ -95,6 +99,7 @@
       74,
       75
     ],
+    "words": [],
     "disabled": false
   },
   {
@@ -106,6 +111,9 @@
     "description": "The next byte contains the number of bytes to be pushed onto the stack.",
     "opcodes": [
       76
+    ],
+    "words": [
+      "OP_PUSHDATA1"
     ],
     "disabled": false
   },
@@ -119,6 +127,9 @@
     "opcodes": [
       77
     ],
+    "words": [
+      "OP_PUSHDATA2"
+    ],
     "disabled": false
   },
   {
@@ -130,6 +141,9 @@
     "description": "The next four bytes contain the number of bytes to be pushed onto the stack in little endian order.",
     "opcodes": [
       78
+    ],
+    "words": [
+      "OP_PUSHDATA4"
     ],
     "disabled": false
   },
@@ -143,6 +157,9 @@
     "opcodes": [
       79
     ],
+    "words": [
+      "OP_1NEGATE"
+    ],
     "disabled": false
   },
   {
@@ -154,6 +171,10 @@
     "description": "The number 1 is pushed onto the stack.",
     "opcodes": [
       81
+    ],
+    "words": [
+      "OP_1",
+      "OP_TRUE"
     ],
     "disabled": false
   },
@@ -181,6 +202,23 @@
       95,
       96
     ],
+    "words": [
+      "OP_2",
+      "OP_3",
+      "OP_4",
+      "OP_5",
+      "OP_6",
+      "OP_7",
+      "OP_8",
+      "OP_9",
+      "OP_10",
+      "OP_11",
+      "OP_12",
+      "OP_13",
+      "OP_14",
+      "OP_15",
+      "OP_16"
+    ],
     "disabled": false
   },
   {
@@ -193,6 +231,9 @@
     "opcodes": [
       97
     ],
+    "words": [
+      "OP_NOP"
+    ],
     "disabled": false
   },
   {
@@ -203,6 +244,9 @@
     "description": "If the top stack value is not False, the statements are executed. The top stack value is removed.",
     "opcodes": [
       99
+    ],
+    "words": [
+      "OP_IF"
     ],
     "disabled": false
   },
@@ -215,6 +259,9 @@
     "opcodes": [
       100
     ],
+    "words": [
+      "OP_NOTIF"
+    ],
     "disabled": false
   },
   {
@@ -226,6 +273,9 @@
     "opcodes": [
       103
     ],
+    "words": [
+      "OP_ELSE"
+    ],
     "disabled": false
   },
   {
@@ -236,6 +286,9 @@
     "description": "Ends an if/else block. All blocks must end, or the transaction is invalid. An OP_ENDIF without OP_IF earlier is also invalid.",
     "opcodes": [
       104
+    ],
+    "words": [
+      "OP_ENDIF"
     ],
     "disabled": false
   },
@@ -249,6 +302,9 @@
     "opcodes": [
       105
     ],
+    "words": [
+      "OP_VERIFY"
+    ],
     "disabled": false
   },
   {
@@ -260,6 +316,9 @@
     "description": "Marks transaction as invalid. A standard way of attaching extra data to transactions is to add a zero-value output with a scriptPubKey consisting of OP_RETURN followed by exactly one pushdata op. Such outputs are provably unspendable, reducing their cost to the network. Currently it is usually considered non-standard (though valid) for a transaction to have more than one OP_RETURN output or an OP_RETURN output with more than one pushdata op.",
     "opcodes": [
       106
+    ],
+    "words": [
+      "OP_RETURN"
     ],
     "disabled": false
   },
@@ -273,6 +332,9 @@
     "opcodes": [
       107
     ],
+    "words": [
+      "OP_TOALTSTACK"
+    ],
     "disabled": false
   },
   {
@@ -284,6 +346,9 @@
     "description": "Puts the input onto the top of the main stack. Removes it from the alt stack.",
     "opcodes": [
       108
+    ],
+    "words": [
+      "OP_FROMALTSTACK"
     ],
     "disabled": false
   },
@@ -297,6 +362,9 @@
     "opcodes": [
       115
     ],
+    "words": [
+      "OP_IFDUP"
+    ],
     "disabled": false
   },
   {
@@ -308,6 +376,9 @@
     "description": "Puts the number of stack items onto the stack.",
     "opcodes": [
       116
+    ],
+    "words": [
+      "OP_DEPTH"
     ],
     "disabled": false
   },
@@ -321,6 +392,9 @@
     "opcodes": [
       117
     ],
+    "words": [
+      "OP_DROP"
+    ],
     "disabled": false
   },
   {
@@ -332,6 +406,9 @@
     "description": "Duplicates the top stack item.",
     "opcodes": [
       118
+    ],
+    "words": [
+      "OP_DUP"
     ],
     "disabled": false
   },
@@ -345,6 +422,9 @@
     "opcodes": [
       119
     ],
+    "words": [
+      "OP_NIP"
+    ],
     "disabled": false
   },
   {
@@ -356,6 +436,9 @@
     "description": "Copies the second-to-top stack item to the top.",
     "opcodes": [
       120
+    ],
+    "words": [
+      "OP_OVER"
     ],
     "disabled": false
   },
@@ -369,6 +452,9 @@
     "opcodes": [
       121
     ],
+    "words": [
+      "OP_PICK"
+    ],
     "disabled": false
   },
   {
@@ -380,6 +466,9 @@
     "description": "The item n back in the stack is moved to the top.",
     "opcodes": [
       122
+    ],
+    "words": [
+      "OP_ROLL"
     ],
     "disabled": false
   },
@@ -393,6 +482,9 @@
     "opcodes": [
       123
     ],
+    "words": [
+      "OP_ROT"
+    ],
     "disabled": false
   },
   {
@@ -404,6 +496,9 @@
     "description": "The top two items on the stack are swapped.",
     "opcodes": [
       124
+    ],
+    "words": [
+      "OP_SWAP"
     ],
     "disabled": false
   },
@@ -417,6 +512,9 @@
     "opcodes": [
       125
     ],
+    "words": [
+      "OP_TUCK"
+    ],
     "disabled": false
   },
   {
@@ -428,6 +526,9 @@
     "description": "Removes the top two stack items.",
     "opcodes": [
       109
+    ],
+    "words": [
+      "OP_2DROP"
     ],
     "disabled": false
   },
@@ -441,6 +542,9 @@
     "opcodes": [
       110
     ],
+    "words": [
+      "OP_2DUP"
+    ],
     "disabled": false
   },
   {
@@ -452,6 +556,9 @@
     "description": "Duplicates the top three stack items.",
     "opcodes": [
       111
+    ],
+    "words": [
+      "OP_3DUP"
     ],
     "disabled": false
   },
@@ -465,6 +572,9 @@
     "opcodes": [
       112
     ],
+    "words": [
+      "OP_2OVER"
+    ],
     "disabled": false
   },
   {
@@ -476,6 +586,9 @@
     "description": "The fifth and sixth items back are moved to the top of the stack.",
     "opcodes": [
       113
+    ],
+    "words": [
+      "OP_2ROT"
     ],
     "disabled": false
   },
@@ -489,6 +602,9 @@
     "opcodes": [
       114
     ],
+    "words": [
+      "OP_2SWAP"
+    ],
     "disabled": false
   },
   {
@@ -500,6 +616,9 @@
     "description": "Concatenates two strings. disabled.",
     "opcodes": [
       126
+    ],
+    "words": [
+      "OP_CAT"
     ],
     "disabled": true
   },
@@ -513,6 +632,9 @@
     "opcodes": [
       127
     ],
+    "words": [
+      "OP_SUBSTR"
+    ],
     "disabled": true
   },
   {
@@ -524,6 +646,9 @@
     "description": "Keeps only characters left of the specified point in a string. disabled.",
     "opcodes": [
       128
+    ],
+    "words": [
+      "OP_LEFT"
     ],
     "disabled": true
   },
@@ -537,6 +662,9 @@
     "opcodes": [
       129
     ],
+    "words": [
+      "OP_RIGHT"
+    ],
     "disabled": true
   },
   {
@@ -548,6 +676,9 @@
     "description": "Pushes the string length of the top element of the stack (without popping it).",
     "opcodes": [
       130
+    ],
+    "words": [
+      "OP_SIZE"
     ],
     "disabled": false
   },
@@ -561,6 +692,9 @@
     "opcodes": [
       131
     ],
+    "words": [
+      "OP_INVERT"
+    ],
     "disabled": true
   },
   {
@@ -572,6 +706,9 @@
     "description": "Boolean and between each bit in the inputs. disabled.",
     "opcodes": [
       132
+    ],
+    "words": [
+      "OP_AND"
     ],
     "disabled": true
   },
@@ -585,6 +722,9 @@
     "opcodes": [
       133
     ],
+    "words": [
+      "OP_OR"
+    ],
     "disabled": true
   },
   {
@@ -596,6 +736,9 @@
     "description": "Boolean exclusive or between each bit in the inputs. disabled.",
     "opcodes": [
       134
+    ],
+    "words": [
+      "OP_XOR"
     ],
     "disabled": true
   },
@@ -609,6 +752,9 @@
     "opcodes": [
       135
     ],
+    "words": [
+      "OP_EQUAL"
+    ],
     "disabled": false
   },
   {
@@ -620,6 +766,9 @@
     "description": "Same as OP_EQUAL, but runs OP_VERIFY afterward.",
     "opcodes": [
       136
+    ],
+    "words": [
+      "OP_EQUALVERIFY"
     ],
     "disabled": false
   },
@@ -633,6 +782,9 @@
     "opcodes": [
       139
     ],
+    "words": [
+      "OP_1ADD"
+    ],
     "disabled": false
   },
   {
@@ -644,6 +796,9 @@
     "description": "1 is subtracted from the input.",
     "opcodes": [
       140
+    ],
+    "words": [
+      "OP_1SUB"
     ],
     "disabled": false
   },
@@ -657,6 +812,9 @@
     "opcodes": [
       141
     ],
+    "words": [
+      "OP_2MUL"
+    ],
     "disabled": true
   },
   {
@@ -668,6 +826,9 @@
     "description": "The input is divided by 2. disabled.",
     "opcodes": [
       142
+    ],
+    "words": [
+      "OP_2DIV"
     ],
     "disabled": true
   },
@@ -681,6 +842,9 @@
     "opcodes": [
       143
     ],
+    "words": [
+      "OP_NEGATE"
+    ],
     "disabled": false
   },
   {
@@ -692,6 +856,9 @@
     "description": "The input is made positive.",
     "opcodes": [
       144
+    ],
+    "words": [
+      "OP_ABS"
     ],
     "disabled": false
   },
@@ -705,6 +872,9 @@
     "opcodes": [
       145
     ],
+    "words": [
+      "OP_NOT"
+    ],
     "disabled": false
   },
   {
@@ -716,6 +886,9 @@
     "description": "Returns 0 if the input is 0. 1 otherwise.",
     "opcodes": [
       146
+    ],
+    "words": [
+      "OP_0NOTEQUAL"
     ],
     "disabled": false
   },
@@ -729,6 +902,9 @@
     "opcodes": [
       147
     ],
+    "words": [
+      "OP_ADD"
+    ],
     "disabled": false
   },
   {
@@ -740,6 +916,9 @@
     "description": "b is subtracted from a.",
     "opcodes": [
       148
+    ],
+    "words": [
+      "OP_SUB"
     ],
     "disabled": false
   },
@@ -753,6 +932,9 @@
     "opcodes": [
       149
     ],
+    "words": [
+      "OP_MUL"
+    ],
     "disabled": true
   },
   {
@@ -764,6 +946,9 @@
     "description": "a is divided by b. disabled.",
     "opcodes": [
       150
+    ],
+    "words": [
+      "OP_DIV"
     ],
     "disabled": true
   },
@@ -777,6 +962,9 @@
     "opcodes": [
       151
     ],
+    "words": [
+      "OP_MOD"
+    ],
     "disabled": true
   },
   {
@@ -788,6 +976,9 @@
     "description": "Shifts a left b bits, preserving sign. disabled.",
     "opcodes": [
       152
+    ],
+    "words": [
+      "OP_LSHIFT"
     ],
     "disabled": true
   },
@@ -801,6 +992,9 @@
     "opcodes": [
       153
     ],
+    "words": [
+      "OP_RSHIFT"
+    ],
     "disabled": true
   },
   {
@@ -812,6 +1006,9 @@
     "description": "If both a and b are not \"\" (null string), the output is 1. Otherwise 0.",
     "opcodes": [
       154
+    ],
+    "words": [
+      "OP_BOOLAND"
     ],
     "disabled": false
   },
@@ -825,6 +1022,9 @@
     "opcodes": [
       155
     ],
+    "words": [
+      "OP_BOOLOR"
+    ],
     "disabled": false
   },
   {
@@ -836,6 +1036,9 @@
     "description": "Returns 1 if the numbers are equal, 0 otherwise.",
     "opcodes": [
       156
+    ],
+    "words": [
+      "OP_NUMEQUAL"
     ],
     "disabled": false
   },
@@ -849,6 +1052,9 @@
     "opcodes": [
       157
     ],
+    "words": [
+      "OP_NUMEQUALVERIFY"
+    ],
     "disabled": false
   },
   {
@@ -860,6 +1066,9 @@
     "description": "Returns 1 if the numbers are not equal, 0 otherwise.",
     "opcodes": [
       158
+    ],
+    "words": [
+      "OP_NUMNOTEQUAL"
     ],
     "disabled": false
   },
@@ -873,6 +1082,9 @@
     "opcodes": [
       159
     ],
+    "words": [
+      "OP_LESSTHAN"
+    ],
     "disabled": false
   },
   {
@@ -884,6 +1096,9 @@
     "description": "Returns 1 if a is greater than b, 0 otherwise.",
     "opcodes": [
       160
+    ],
+    "words": [
+      "OP_GREATERTHAN"
     ],
     "disabled": false
   },
@@ -897,6 +1112,9 @@
     "opcodes": [
       161
     ],
+    "words": [
+      "OP_LESSTHANOREQUAL"
+    ],
     "disabled": false
   },
   {
@@ -908,6 +1126,9 @@
     "description": "Returns 1 if a is greater than or equal to b, 0 otherwise.",
     "opcodes": [
       162
+    ],
+    "words": [
+      "OP_GREATERTHANOREQUAL"
     ],
     "disabled": false
   },
@@ -921,6 +1142,9 @@
     "opcodes": [
       163
     ],
+    "words": [
+      "OP_MIN"
+    ],
     "disabled": false
   },
   {
@@ -932,6 +1156,9 @@
     "description": "Returns the larger of a and b.",
     "opcodes": [
       164
+    ],
+    "words": [
+      "OP_MAX"
     ],
     "disabled": false
   },
@@ -945,6 +1172,9 @@
     "opcodes": [
       165
     ],
+    "words": [
+      "OP_WITHIN"
+    ],
     "disabled": false
   },
   {
@@ -956,6 +1186,9 @@
     "description": "The input is hashed using RIPEMD-160.",
     "opcodes": [
       166
+    ],
+    "words": [
+      "OP_RIPEMD160"
     ],
     "disabled": false
   },
@@ -969,6 +1202,9 @@
     "opcodes": [
       167
     ],
+    "words": [
+      "OP_SHA1"
+    ],
     "disabled": false
   },
   {
@@ -980,6 +1216,9 @@
     "description": "The input is hashed using SHA-256.",
     "opcodes": [
       168
+    ],
+    "words": [
+      "OP_SHA256"
     ],
     "disabled": false
   },
@@ -993,6 +1232,9 @@
     "opcodes": [
       169
     ],
+    "words": [
+      "OP_HASH160"
+    ],
     "disabled": false
   },
   {
@@ -1004,6 +1246,9 @@
     "description": "The input is hashed two times with SHA-256.",
     "opcodes": [
       170
+    ],
+    "words": [
+      "OP_HASH256"
     ],
     "disabled": false
   },
@@ -1017,6 +1262,9 @@
     "opcodes": [
       171
     ],
+    "words": [
+      "OP_CODESEPARATOR"
+    ],
     "disabled": false
   },
   {
@@ -1028,6 +1276,9 @@
     "description": "The entire transaction's outputs, inputs, and script (from the most recently-executed OP_CODESEPARATOR to the end) are hashed. The signature used by OP_CHECKSIG must be a valid signature for this hash and public key. If it is, 1 is returned, 0 otherwise.",
     "opcodes": [
       172
+    ],
+    "words": [
+      "OP_CHECKSIG"
     ],
     "disabled": false
   },
@@ -1041,6 +1292,9 @@
     "opcodes": [
       173
     ],
+    "words": [
+      "OP_CHECKSIGVERIFY"
+    ],
     "disabled": false
   },
   {
@@ -1052,6 +1306,9 @@
     "description": "Compares the first signature against each public key until it finds an ECDSA match. Starting with the subsequent public key, it compares the second signature against each remaining public key until it finds an ECDSA match. The process is repeated until all signatures have been checked or not enough public keys remain to produce a successful result. All signatures need to match a public key. Because public keys are not checked again if they fail any signature comparison, signatures must be placed in the scriptSig using the same order as their corresponding public keys were placed in the scriptPubKey or redeemScript. If all signatures are valid, 1 is returned, 0 otherwise. Due to a bug, one extra unused value is removed from the stack.",
     "opcodes": [
       174
+    ],
+    "words": [
+      "OP_CHECKMULTISIG"
     ],
     "disabled": false
   },
@@ -1065,6 +1322,9 @@
     "opcodes": [
       175
     ],
+    "words": [
+      "OP_CHECKMULTISIGVERIFY"
+    ],
     "disabled": false
   },
   {
@@ -1076,6 +1336,10 @@
     "description": "Marks transaction as invalid if the top stack item is greater than the transaction's nLockTime field, otherwise script evaluation continues as though an OP_NOP was executed. Transaction is also invalid if 1. the stack is empty; or 2. the top stack item is negative; or 3. the top stack item is greater than or equal to 500000000 while the transaction's nLockTime field is less than 500000000, or vice versa; or 4. the input's nSequence field is equal to 0xffffffff. The precise semantics are described in BIP 0065.",
     "opcodes": [
       177
+    ],
+    "words": [
+      "OP_CHECKLOCKTIMEVERIFY",
+      "OP_NOP2"
     ],
     "disabled": false
   },
@@ -1089,6 +1353,10 @@
     "opcodes": [
       178
     ],
+    "words": [
+      "OP_CHECKSEQUENCEVERIFY",
+      "OP_NOP3"
+    ],
     "disabled": false
   },
   {
@@ -1098,6 +1366,9 @@
     "description": "Represents a public key hashed with OP_HASH160.",
     "opcodes": [
       253
+    ],
+    "words": [
+      "OP_PUBKEYHASH"
     ],
     "disabled": false
   },
@@ -1109,6 +1380,9 @@
     "opcodes": [
       254
     ],
+    "words": [
+      "OP_PUBKEY"
+    ],
     "disabled": false
   },
   {
@@ -1118,6 +1392,9 @@
     "description": "Matches any opcode that is not yet assigned.",
     "opcodes": [
       255
+    ],
+    "words": [
+      "OP_INVALIDOPCODE"
     ],
     "disabled": false
   },
@@ -1129,6 +1406,9 @@
     "opcodes": [
       80
     ],
+    "words": [
+      "OP_RESERVED"
+    ],
     "disabled": false
   },
   {
@@ -1138,6 +1418,9 @@
     "description": "Transaction is invalid unless occuring in an unexecuted OP_IF branch",
     "opcodes": [
       98
+    ],
+    "words": [
+      "OP_VER"
     ],
     "disabled": false
   },
@@ -1149,6 +1432,9 @@
     "opcodes": [
       101
     ],
+    "words": [
+      "OP_VERIF"
+    ],
     "disabled": false
   },
   {
@@ -1158,6 +1444,9 @@
     "description": "Transaction is invalid even when occuring in an unexecuted OP_IF branch",
     "opcodes": [
       102
+    ],
+    "words": [
+      "OP_VERNOTIF"
     ],
     "disabled": false
   },
@@ -1169,6 +1458,9 @@
     "opcodes": [
       137
     ],
+    "words": [
+      "OP_RESERVED1"
+    ],
     "disabled": false
   },
   {
@@ -1178,6 +1470,9 @@
     "description": "Transaction is invalid unless occuring in an unexecuted OP_IF branch",
     "opcodes": [
       138
+    ],
+    "words": [
+      "OP_RESERVED2"
     ],
     "disabled": false
   },
@@ -1195,6 +1490,16 @@
       183,
       184,
       185
+    ],
+    "words": [
+      "OP_NOP1",
+      "OP_NOP4",
+      "OP_NOP5",
+      "OP_NOP6",
+      "OP_NOP7",
+      "OP_NOP8",
+      "OP_NOP9",
+      "OP_NOP10"
     ],
     "disabled": false
   }

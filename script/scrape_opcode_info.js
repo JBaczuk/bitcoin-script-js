@@ -69,6 +69,7 @@ function normalizeRowData (row) {
   }
 
   row.opcodes = parseOpCodes(row.opcode)
+  row.words = parseWords(row.word)
   row.disabled = row.description.endsWith('. disabled.')
 
   return row
@@ -95,4 +96,47 @@ function parseOpCodes (opcodeStr) {
   }
 
   return [parseInt(opcodeStr)]
+}
+
+function parseWords (wordStr) {
+  if (wordStr === 'N/A') {
+    // handles pushdata opcodes
+    return []
+  } else if (wordStr.includes(',')) {
+    // handles a comma separated list of words or word ranges
+    return wordStr.split(',')
+      .map((subStr) => parseWords(subStr.trim()))
+      .reduce((out, piece) => out.concat(piece), [])
+  } else if (wordStr.includes('-')) {
+    // handles word ranges
+    const [startStr, endStr] = wordStr.split('-')
+    const startParts = /^([^0-9]+)([0-9]+)$/.exec(startStr)
+    const endParts = /^([^0-9]+)([0-9]+)$/.exec(endStr)
+    if (startParts == null || endParts == null || startParts[1] !== endParts[1]) {
+      throw new Error(`Could not parse words for string ${wordStr}`)
+    }
+
+    const prefix = startParts[1]
+    let start = parseInt(startParts[2])
+    const end = parseInt(endParts[2])
+    const out = []
+    while (start <= end) {
+      out.push(`${prefix}${start}`)
+      start += 1
+    }
+
+    return out
+  }
+
+  const out = [
+    // some of the opcodes have parenthetical information and this strips it out
+    wordStr.replace(/^([A-Z0-9_]+).*/, '$1')
+  ]
+
+  // get previous word for opcode if present
+  if (/\(previously [A-Z0-9_]+\)/.test(wordStr)) {
+    out.push(wordStr.replace(/.+\(previously ([A-Z0-9_]+)\)/, '$1'))
+  }
+
+  return out
 }

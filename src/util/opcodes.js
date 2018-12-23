@@ -1,18 +1,26 @@
 const assert = require('assert')
 
-const words = require('bitcoin-ops')
-const opcodes = require('bitcoin-ops/map')
-
 const opcodeInfoMap = require('../../data/opcode_info_map')
+const wordInfoMap = require('../../data/word_info_map')
 
 function opcodeForWord (word) {
   assert(wordIsValid(word), 'Not a valid term')
-  return words[word]
+  const info = wordInfoMap[word]
+  const idx = info.words.indexOf(word)
+  return info.opcodes[idx]
 }
 
 function wordForOpcode (opcode) {
   assert(opcodeIsValid(opcode), 'Not a valid opcode')
-  return opcodes[opcode]
+  const info = opcodeInfoMap[opcode]
+
+  if (info.word === 'N/A') {
+    // special case... not sure what should be returned
+    return undefined
+  }
+
+  const idx = info.opcodes.indexOf(opcode)
+  return info.words[idx]
 }
 
 function opcodeIsValid (opcode) {
@@ -20,7 +28,7 @@ function opcodeIsValid (opcode) {
 }
 
 function wordIsValid (word) {
-  return word in words
+  return word in wordInfoMap
 }
 
 function descriptionForOpcode (opcode) {
@@ -29,7 +37,6 @@ function descriptionForOpcode (opcode) {
 }
 
 function descriptionForWord (word) {
-  assert(wordIsValid(word), 'Not a valid term')
   return descriptionForOpcode(opcodeForWord(word))
 }
 
@@ -39,7 +46,6 @@ function inputDescriptionForOpcode (opcode) {
 }
 
 function inputDescriptionForWord (word) {
-  assert(wordIsValid(word), 'Not a valid term')
   return inputDescriptionForOpcode(opcodeForWord(word))
 }
 
@@ -49,13 +55,16 @@ function outputDescriptionForOpcode (opcode) {
 }
 
 function outputDescriptionForWord (word) {
-  assert(wordIsValid(word), 'Not a valid term')
   return outputDescriptionForOpcode(opcodeForWord(word))
 }
 
 function opcodeIsDisabled (opcode) {
   assert(opcodeIsValid(opcode), 'Not a valid opcode')
   return opcodeInfoMap[opcode].disabled
+}
+
+function wordIsDisabled (word) {
+  return opcodeIsDisabled(opcodeForWord(word))
 }
 
 module.exports = {
@@ -69,5 +78,6 @@ module.exports = {
   inputDescriptionForWord,
   outputDescriptionForOpcode,
   outputDescriptionForWord,
-  opcodeIsDisabled
+  opcodeIsDisabled,
+  wordIsDisabled
 }
