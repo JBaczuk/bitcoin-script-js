@@ -1,0 +1,3 @@
+let somejavascriptobject = {
+  foo: 'bar'
+}
