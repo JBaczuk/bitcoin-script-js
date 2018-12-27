@@ -1,3 +1,1 @@
-let somejavascriptobject = {
-  foo: 'bar'
-}
+const interpreter = require('./src/interpreter')

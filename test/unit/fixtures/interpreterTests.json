@@ -1,0 +1,50 @@
+{
+  "success": [
+    {
+      "description": "",
+      "asm": "",
+      "hex": "01",
+      "final_stack_hex": ""
+    },
+    {
+      "description": "",
+      "asm": "",
+      "hex": "0101",
+      "final_stack_hex": ""
+    },
+    {
+      "description": "",
+      "asm": "",
+      "hex": "010149",
+      "final_stack_hex": ""
+    }
+  ],
+  "fail": [
+    {
+      "description": "",
+      "asm": "",
+      "hex": "00",
+      "final_stack_hex": ""
+    },
+    {
+      "description": "",
+      "asm": "",
+      "hex": "0100",
+      "final_stack_hex": ""
+    },
+    {
+      "description": "",
+      "asm": "",
+      "hex": "011000",
+      "final_stack_hex": ""
+    }
+  ],
+  "invalid": [
+    {
+      "description": "",
+      "asm": "",
+      "hex": "",
+      "error_msg": "No script provided"
+    }
+  ]
+}
