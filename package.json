@@ -4,7 +4,8 @@
   "description": "Bitcoin script interpreter written in javascript for browsers and node.js",
   "main": "index.js",
   "dependencies": {
-    "bitcoin-ops": "1.4.1"
+    "bitcoin-ops": "1.4.1",
+    "bscript-parser": "git+https://git@github.com/jbaczuk/bscript-parser.git"
   },
   "devDependencies": {
     "browserify": "^16.2.3",
