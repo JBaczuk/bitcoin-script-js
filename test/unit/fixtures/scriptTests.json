@@ -1,10 +1,10 @@
 {
-<<<<<<< HEAD
   "valid": [
     {
       "serializedScript": "47304402207515cf147d201f411092e6be5a64a6006f9308fad7b2a8fdaab22cd86ce764c202200974b8aca7bf51dbf54150d3884e1ae04f675637b926ec33bf75939446f6ca2801",
       "length": "72"
-=======
+    }
+  ],
   "success": [
     {
       "description": "One bytes with stacktop=0x01",
@@ -37,94 +37,12 @@
       "description": "Two items with false on top of stack",
       "hex": "011000",
       "stacktop": "00"
->>>>>>> squashme
     }
   ],
   "invalid": [
     {
-<<<<<<< HEAD
       "serializedScript": "bad input",
       "error": "serializedScript must be a buffer"
-=======
-      "description": "",
-      "hex": "",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "7e",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "7f",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "80",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "81",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "83",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "84",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "85",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "86",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "8d",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "8e",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "95",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "96",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "97",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "98",
-      "result": false
-    },
-    {
-      "description": "",
-      "hex": "99",
-      "result": false
->>>>>>> squashme
     }
   ]
 }
