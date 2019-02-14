@@ -30,9 +30,6 @@ describe('Script Tests', function () {
         let script = new Script(Buffer.from(serializedScript, 'hex'))
         let actualSlice = script.slice(randStart, randStart + randSliceSize)
         expect(actualSlice.equals(expectedSlice)).to.be.true
-    fixtures.success.forEach(function (scriptFixture) {
-      it(`should do something`, function () {
-        expect(true).to.be.true
       })
     })
   })
@@ -56,14 +53,6 @@ describe('Script Tests', function () {
           expect(Script.validateOpcode(buf)).to.be.false
         })
       }
-    })
-  })
-
-  describe('Error tests', function () {
-    it(`should throw Error: serializedScript must be a buffer`, function () {
-      expect(() =>
-        new Script('something')
-      ).to.throw('serializedScript must be a buffer')
     })
   })
 })
