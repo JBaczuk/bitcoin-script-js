@@ -41,7 +41,6 @@ describe('Interpreter Tests', function () {
         let buf = Buffer.alloc(1)
         buf.writeUInt8(i)
         let script = new Script(buf)
-        console.log('script', script)
         let interpreter = new Interpreter(script)
         expect(interpreter.evaluate.bind(interpreter)).to.throw(`Invalid opcode ${i.toString(16)}`)
       })
