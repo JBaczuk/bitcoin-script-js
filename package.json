@@ -31,7 +31,7 @@
     "nyc": "^13.1.0"
   },
   "scripts": {
-    "test": "nyc mocha --recursive --require ./test/globals ./test/unit/*.test.js",
+    "test": "nyc mocha --recursive --require ./test/globals ./test/unit/*.test.js --exit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "browser-test": "karma start karma.conf.js --log-level debug --single-run"

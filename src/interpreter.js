@@ -1,31 +1,52 @@
-const bscript = require('bscript-parser')
+const Script = require('./script')
 
-const Interpreter = module.exports = class Interpreter {
+class Interpreter {
   constructor (script) {
+    if (!(script instanceof Script)) {
+      throw Error('script must be instance of Script')
+    }
     this.script = script
-    this.pc = 0
-    this.pend = script.length
+    this.programCounter = 0
+    this.programEnd = this.script.length
     this.stack = []
   }
 
   step () {
-    if (this.pc >= this.pend) {
+    if (this.programCounter >= this.programEnd) {
       throw Error('Cannot step, no further instructions')
     }
     if (typeof this.script === 'undefined' || this.script.length === 0) {
       throw Error('No script provided')
     }
     // Validate opcode
-    if (bscript.opcodes.opcodeIsValid(this.script[this.pc]) && !bscript.opcodes.opcodeIsDisabled(this.script[this.pc])) {
-      if (this.script[this.pc] <= 0x4b) {
-        this.stack.push(this.script[this.pc])
-        this.pc += 1
+    if (!Script.opcodeIsValid(this.script.at(this.programCounter))) {
+      throw Error(`Invalid opcode ${this.script.at(this.programCounter).toString(16)}`)
+    } else {
+      if (this.script.at(this.programCounter) === 0x00) {
+        this.stack.push(Buffer.from('00', 'hex'))
+        this.programCounter += 1
+      } else if (this.script.at(this.programCounter) <= 0x4b) {
+        let bytesToPush = parseInt(this.script.at(this.programCounter), 16)
+
+        // Make sure there are this many bytes left to push
+        if (this.script.length - (this.programCounter + 1) < bytesToPush) {
+          throw Error(`Push bytes failed: script too small`)
+        }
+
+        // Push that many bytes to the stack
+        this.stack.push(this.script.slice(this.programCounter + 1, this.programCounter + 1 + bytesToPush))
+        this.programCounter += 1 + bytesToPush
+      } else {
+        let opcode = Script.wordForOpcode(this.script.at(this.programCounter))
+        if (Script.wordIsDisabled(opcode)) {
+          throw Error(`Disabled opcode ${opcode}`)
+        }
+        // TODO: execute the op_code
+        switch (opcode) {
+          default:
+            throw Error(`Invalid opcode ${this.script.at(this.programCounter).toString(16)}`)
+        }
       }
-      let opcode = bscript.opcodes.wordForOpcode(this.script[this.pc])
-      // TODO: execute the op_code
-      // switch (opcode) {
-      //   case 
-      // }
     }
   }
 
@@ -33,22 +54,22 @@ const Interpreter = module.exports = class Interpreter {
     if (typeof this.script === 'undefined' || this.script.length === 0) {
       throw Error('No script provided')
     }
-    while (this.pc < this.pend) {
+    while (this.programCounter < this.programEnd) {
       this.step()
     }
-    if (this.pc === this.pend) {
-      // We are at the end of the script, if top stack item is nonzero, return true
-      return this.didSucceed()
-    }
+    // We are at the end of the script, if top stack item is nonzero, return true
+    return this.didSucceed()
   }
 
   didSucceed () {
     if (this.stack.length === 0) {
       return false
-    } else if (this.stack[this.stack.length - 1] === 0) {
+    } else if (this.stack[this.stack.length - 1].toString('hex') === '00') {
       return false
     } else {
       return true
     }
   }
 }
+
+module.exports = Interpreter
