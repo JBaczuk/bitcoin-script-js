@@ -1,7 +1,6 @@
 const bscript = require('bscript-parser')
 
 class Script {
-
   constructor (serializedScript) {
     if (!Buffer.isBuffer(serializedScript)) {
       throw Error('serializedScript must be a buffer')
@@ -12,7 +11,7 @@ class Script {
   get length () {
     return this.serialized.length
   }
-  
+
   at (index) {
     return this.serialized[index]
   }
@@ -34,6 +33,10 @@ class Script {
 
   static wordIsDisabled (opcode) {
     return bscript.opcodes.wordIsDisabled(opcode)
+  }
+
+  static opcodeForWord (word) {
+    return bscript.opcodes.opcodeForWord(word)
   }
 }
 
