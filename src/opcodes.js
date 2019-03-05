@@ -1,12 +1,7 @@
 module.exports = new Map([
   // push value
-  ['OP_0', function (context) {
-    context.stack.push(Buffer.from('00', 'hex'))
-    context.programCounter += 1
-  }],
-  ['OP_FALSE', function (context) {
-
-  }],
+  ['OP_0', opFalse],
+  ['OP_FALSE', opFalse],
   ['OP_PUSHDATA1', function (context) {
 
   }],
@@ -356,10 +351,15 @@ module.exports = new Map([
 
   }],
 
-  ['OP_INVALID[OPCODE', function (context) {
-    throw Error(`Invalid opcode ${context.script.at(this.programCounter).toString(16)}`)
+  ['OP_INVALIDOPCODE', function (context) {
+    throw Error(`Invalid opcode ${context.script.at(context.programCounter).toString(16)}`)
   }]
 ])
+
+function opFalse (context) {
+  context.stack.push(Buffer.from('00', 'hex'))
+  context.programCounter += 1
+}
 
 function checkLocktimeVerify (context) {
 
