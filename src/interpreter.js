@@ -40,7 +40,6 @@ class Interpreter {
         this.programCounter += 1 + bytesToPush
       } else {
         let opcode = this.script.at(this.programCounter)
-        console.log('opcode', opcode)
         let word = Script.wordForOpcode(opcode)
         if (Script.wordIsDisabled(word)) {
           throw Error(`Disabled opcode ${word}`)
