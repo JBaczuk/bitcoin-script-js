@@ -8,7 +8,17 @@ module.exports = new Map([
 
   }],
   ['OP_PUSHDATA1', function (context) {
+    context.programCounter += 1
+    let bytesToPush = parseInt(context.script.at(context.programCounter))
 
+    // Make sure there are this many bytes left to push
+    if (context.script.length - (context.programCounter) < bytesToPush) {
+      throw Error(`Push bytes failed: script too small`)
+    }
+
+    // Push that many bytes to the stack
+    context.stack.push(context.script.slice(context.programCounter + 1, context.programCounter + 1 + bytesToPush))
+    context.programCounter += 1 + bytesToPush
   }],
   ['OP_PUSHDATA2', function (context) {
 
